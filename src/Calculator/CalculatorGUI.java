@@ -33,6 +33,7 @@ public class CalculatorGUI extends javax.swing.JFrame {
         mulButton = new javax.swing.JButton();
         divButton = new javax.swing.JButton();
         minusButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TwoLineCalculator");
@@ -59,23 +60,27 @@ public class CalculatorGUI extends javax.swing.JFrame {
 
         minusButton.setText("-");
 
+        jLabel1.setText("Result");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(plusButton)
-                        .addGap(30, 30, 30)
-                        .addComponent(minusButton)
-                        .addGap(26, 26, 26)
-                        .addComponent(mulButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(divButton))
-                    .addComponent(aField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(bField, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(plusButton)
+                            .addGap(30, 30, 30)
+                            .addComponent(minusButton)
+                            .addGap(26, 26, 26)
+                            .addComponent(mulButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(divButton))
+                        .addComponent(aField)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,7 +90,9 @@ public class CalculatorGUI extends javax.swing.JFrame {
                 .addComponent(bField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(aField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(plusButton)
                     .addComponent(minusButton)
@@ -144,6 +151,7 @@ public class CalculatorGUI extends javax.swing.JFrame {
     private javax.swing.JTextField aField;
     private javax.swing.JTextField bField;
     private javax.swing.JButton divButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton minusButton;
     private javax.swing.JButton mulButton;
     private javax.swing.JButton plusButton;
