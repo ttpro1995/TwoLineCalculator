@@ -12,6 +12,13 @@ import org.apache.commons.math3.fraction.Fraction;
  * @author Thien
  */
 public class Calculation {
+    
+    public static double fractionToDouble(String fraction){
+        String[] part_a = fraction.split("/");
+        Fraction fraction_a = Fraction.getReducedFraction(Integer.parseInt(part_a[0]), Integer.parseInt(part_a[1]));
+        return fraction_a.doubleValue();
+    }
+    
     public static double plus(String a, String b){
         String[] part_a = a.split("/");
         String[] part_b = b.split("/");
