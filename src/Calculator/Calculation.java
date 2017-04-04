@@ -6,6 +6,7 @@
 package Calculator;
 
 import org.apache.commons.math3.fraction.Fraction;
+import org.apache.commons.math3.fraction.FractionFormat;
 
 /**
  *
@@ -14,8 +15,8 @@ import org.apache.commons.math3.fraction.Fraction;
 public class Calculation {
     
     public static double fractionToDouble(String fraction){
-        String[] part_a = fraction.split("/");
-        Fraction fraction_a = Fraction.getReducedFraction(Integer.parseInt(part_a[0]), Integer.parseInt(part_a[1]));
+        FractionFormat ff = new FractionFormat();
+        Fraction fraction_a = ff.parse(fraction);
         return fraction_a.doubleValue();
     }
     

@@ -30,12 +30,20 @@ public class CalculationTest {
     private String a;
     private String b;
     private double plusExpected;
-    public CalculationTest(String a, String b, String plusExpected) {
+    private double minusExpected;
+    private double mulExpected;
+    private double divExpected;
+    public CalculationTest(String a, String b, String plusExpected, String minusExpected, String mulExpected, String divExpected) {
         this.a = a.trim();
         this.b = b.trim();
         plusExpected = plusExpected.trim();
+        minusExpected = minusExpected.trim();
+        mulExpected = mulExpected.trim();
+        divExpected = divExpected.trim();
         this.plusExpected = Calculation.fractionToDouble(plusExpected);
-        System.out.println(this.plusExpected);
+        this.minusExpected = Calculation.fractionToDouble(minusExpected);
+        this.mulExpected = Calculation.fractionToDouble(mulExpected);
+        this.divExpected = Calculation.fractionToDouble(divExpected);
     }
     
     @BeforeClass
@@ -57,7 +65,7 @@ public class CalculationTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() throws FileNotFoundException, IOException {
         // get test data from data_fibonacci.csv
-        CSVReader reader = new CSVReader(new FileReader("test_data2.csv"));
+        CSVReader reader = new CSVReader(new FileReader("test_data.csv"));
         List myEntries = reader.readAll();
         return myEntries;
     }
@@ -81,49 +89,34 @@ public class CalculationTest {
         // TODO review the generated test code and remove the default call to fail.
     }
 
-//    /**
-//     * Test of minus method, of class Calculation.
-//     */
-//    @Test
-//    public void testMinus() {
-//        System.out.println("minus");
-//        String a = "";
-//        String b = "";
-//        double expResult = 0.0;
-//        double result = Calculation.minus(a, b);
-//        assertEquals(expResult, result, 0.0);
-//        // TODO review the generated test code and remove the default call to fail.
-//        // fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of mul method, of class Calculation.
-//     */
-//    @Test
-//    public void testMul() {
-//        System.out.println("mul");
-//        String a = "";
-//        String b = "";
-//        double expResult = 0.0;
-//        double result = Calculation.mul(a, b);
-//        assertEquals(expResult, result, 0.0);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of div method, of class Calculation.
-//     */
-//    @Test
-//    public void testDiv() {
-//        System.out.println("div");
-//        String a = "";
-//        String b = "";
-//        double expResult = 0.0;
-//        double result = Calculation.div(a, b);
-//        assertEquals(expResult, result, 0.0);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    /**
+     * Test of minus method, of class Calculation.
+     */
+    @Test
+    public void testMinus() {
+        System.out.println("minus");  
+        double result = Calculation.minus(this.a, this.b);
+        assertEquals(result, this.minusExpected, 0.00001);
+    }
+
+    /**
+     * Test of mul method, of class Calculation.
+     */
+    @Test
+    public void testMul() {
+        System.out.println("mul");
+        double result = Calculation.mul(this.a, this.b);
+        assertEquals(result, this.mulExpected, 0.00001);
+    }
+
+    /**
+     * Test of div method, of class Calculation.
+     */
+    @Test
+    public void testDiv() {
+        System.out.println("div");
+        double result = Calculation.div(this.a, this.b);
+        assertEquals(result, this.divExpected, 0.00001);
+    }
     
 }
