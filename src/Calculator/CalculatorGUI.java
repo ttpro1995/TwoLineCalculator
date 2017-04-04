@@ -33,7 +33,7 @@ public class CalculatorGUI extends javax.swing.JFrame {
         mulButton = new javax.swing.JButton();
         divButton = new javax.swing.JButton();
         minusButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        resultLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TwoLineCalculator");
@@ -53,14 +53,34 @@ public class CalculatorGUI extends javax.swing.JFrame {
         });
 
         plusButton.setText("+");
+        plusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plusButtonActionPerformed(evt);
+            }
+        });
 
         mulButton.setText("x");
+        mulButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mulButtonActionPerformed(evt);
+            }
+        });
 
         divButton.setText("/");
+        divButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                divButtonActionPerformed(evt);
+            }
+        });
 
         minusButton.setText("-");
+        minusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minusButtonActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Result");
+        resultLabel.setText("Result");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,37 +88,37 @@ public class CalculatorGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bField, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                        .addComponent(resultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(plusButton)
-                            .addGap(30, 30, 30)
+                            .addGap(18, 18, 18)
                             .addComponent(minusButton)
-                            .addGap(26, 26, 26)
+                            .addGap(18, 18, 18)
                             .addComponent(mulButton)
                             .addGap(18, 18, 18)
                             .addComponent(divButton))
                         .addComponent(aField)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
+                .addComponent(aField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(bField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(aField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(plusButton)
                     .addComponent(minusButton)
                     .addComponent(mulButton)
                     .addComponent(divButton))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,6 +131,42 @@ public class CalculatorGUI extends javax.swing.JFrame {
     private void bFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bFieldActionPerformed
+
+    private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
+        String a = aField.getText();
+        String b = bField.getText();
+        Double result = Calculation.plus(a, b);
+        String str_result = String.valueOf(result);
+        str_result = "Result: " + str_result;
+        resultLabel.setText(str_result);
+    }//GEN-LAST:event_plusButtonActionPerformed
+
+    private void minusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusButtonActionPerformed
+        String a = aField.getText();
+        String b = bField.getText();
+        Double result = Calculation.minus(a, b);
+        String str_result = String.valueOf(result);
+        str_result = "Result: " + str_result;
+        resultLabel.setText(str_result);
+    }//GEN-LAST:event_minusButtonActionPerformed
+
+    private void mulButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mulButtonActionPerformed
+        String a = aField.getText();
+        String b = bField.getText();
+        Double result = Calculation.mul(a, b);
+        String str_result = String.valueOf(result);
+        str_result = "Result: " + str_result;
+        resultLabel.setText(str_result);
+    }//GEN-LAST:event_mulButtonActionPerformed
+
+    private void divButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divButtonActionPerformed
+        String a = aField.getText();
+        String b = bField.getText();
+        Double result = Calculation.div(a, b);
+        String str_result = String.valueOf(result);
+        str_result = "Result: " + str_result;
+        resultLabel.setText(str_result);
+    }//GEN-LAST:event_divButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,9 +207,9 @@ public class CalculatorGUI extends javax.swing.JFrame {
     private javax.swing.JTextField aField;
     private javax.swing.JTextField bField;
     private javax.swing.JButton divButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton minusButton;
     private javax.swing.JButton mulButton;
     private javax.swing.JButton plusButton;
+    private javax.swing.JLabel resultLabel;
     // End of variables declaration//GEN-END:variables
 }
