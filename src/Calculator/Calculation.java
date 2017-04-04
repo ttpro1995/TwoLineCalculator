@@ -30,7 +30,8 @@ public class Calculation {
     public static double minus(String a, String b){
         FractionFormat ff = new FractionFormat();
         Fraction fraction_a = ff.parse(a);
-        Fraction fraction_b = ff.parse(b);        double d = fraction_a.doubleValue() - fraction_b.doubleValue();
+        Fraction fraction_b = ff.parse(b);
+        double d = fraction_a.doubleValue() - fraction_b.doubleValue();
         return d;
     }
     public static double mul(String a, String b){
@@ -44,6 +45,7 @@ public class Calculation {
         FractionFormat ff = new FractionFormat();
         Fraction fraction_a = ff.parse(a);
         Fraction fraction_b = ff.parse(b);
+        int c = Double.compare(fraction_b.doubleValue(), 0);
         double d = fraction_a.doubleValue() / fraction_b.doubleValue();
         return d;
     }

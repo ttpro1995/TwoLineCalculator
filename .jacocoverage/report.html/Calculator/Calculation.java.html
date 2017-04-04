@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Calculation.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TwoLineCalculator&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Calculator</a> &gt; <span class="el_source">Calculation.java</span></div><h1>Calculation.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Calculator;
+
+import org.apache.commons.math3.fraction.Fraction;
+import org.apache.commons.math3.fraction.FractionFormat;
+
+/**
+ *
+ * @author Thien
+ */
+<span class="nc" id="L15">public class Calculation {</span>
+    
+    public static double fractionToDouble(String fraction){
+<span class="fc" id="L18">        FractionFormat ff = new FractionFormat();</span>
+<span class="fc" id="L19">        Fraction fraction_a = ff.parse(fraction);</span>
+<span class="fc" id="L20">        return fraction_a.doubleValue();</span>
+    }
+    
+    public static double plus(String a, String b){
+<span class="fc" id="L24">        FractionFormat ff = new FractionFormat();</span>
+<span class="fc" id="L25">        Fraction fraction_a = ff.parse(a);</span>
+<span class="fc" id="L26">        Fraction fraction_b = ff.parse(b);</span>
+<span class="fc" id="L27">        double d = fraction_a.doubleValue() + fraction_b.doubleValue();</span>
+<span class="fc" id="L28">        return d;</span>
+    }
+    public static double minus(String a, String b){
+<span class="fc" id="L31">        FractionFormat ff = new FractionFormat();</span>
+<span class="fc" id="L32">        Fraction fraction_a = ff.parse(a);</span>
+<span class="fc" id="L33">        Fraction fraction_b = ff.parse(b);</span>
+<span class="fc" id="L34">        double d = fraction_a.doubleValue() - fraction_b.doubleValue();</span>
+<span class="fc" id="L35">        return d;</span>
+    }
+    public static double mul(String a, String b){
+<span class="fc" id="L38">        FractionFormat ff = new FractionFormat();</span>
+<span class="fc" id="L39">        Fraction fraction_a = ff.parse(a);</span>
+<span class="fc" id="L40">        Fraction fraction_b = ff.parse(b);</span>
+<span class="fc" id="L41">        double d = fraction_a.doubleValue() * fraction_b.doubleValue();</span>
+<span class="fc" id="L42">        return d;</span>
+    }
+    public static double div(String a, String b){
+<span class="fc" id="L45">        FractionFormat ff = new FractionFormat();</span>
+<span class="fc" id="L46">        Fraction fraction_a = ff.parse(a);</span>
+<span class="fc" id="L47">        Fraction fraction_b = ff.parse(b);</span>
+<span class="fc" id="L48">        int c = Double.compare(fraction_b.doubleValue(), 0);</span>
+<span class="fc" id="L49">        double d = fraction_a.doubleValue() / fraction_b.doubleValue();</span>
+<span class="fc" id="L50">        return d;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
