@@ -135,39 +135,56 @@ public class CalculatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bFieldActionPerformed
 
     private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
-        String a = aField.getText();
-        String b = bField.getText();
-        Double result = Calculation.plus(a, b);
-        String str_result = String.valueOf(result);
-        str_result = "Result: " + str_result;
-        resultLabel.setText(str_result);
+        try{
+            String a = aField.getText();
+            String b = bField.getText();
+            Double result = Calculation.plus(a, b);
+            String str_result = String.valueOf(result);
+            str_result = "Result: " + str_result;
+            resultLabel.setText(str_result);
+        }catch (Exception e){
+            resultLabel.setText("Result: error");
+        }
     }//GEN-LAST:event_plusButtonActionPerformed
 
     private void minusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusButtonActionPerformed
-        String a = aField.getText();
-        String b = bField.getText();
-        Double result = Calculation.minus(a, b);
-        String str_result = String.valueOf(result);
-        str_result = "Result: " + str_result;
-        resultLabel.setText(str_result);
+        try{
+            String a = aField.getText();
+            String b = bField.getText();
+            Double result = Calculation.minus(a, b);
+            String str_result = String.valueOf(result);
+            str_result = "Result: " + str_result;
+            resultLabel.setText(str_result);
+        }catch(Exception e){
+            resultLabel.setText("Result: error");
+        }   
     }//GEN-LAST:event_minusButtonActionPerformed
 
     private void mulButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mulButtonActionPerformed
-        String a = aField.getText();
-        String b = bField.getText();
-        Double result = Calculation.mul(a, b);
-        String str_result = String.valueOf(result);
-        str_result = "Result: " + str_result;
-        resultLabel.setText(str_result);
+        try{
+            String a = aField.getText();
+            String b = bField.getText();
+            Double result = Calculation.mul(a, b);
+            String str_result = String.valueOf(result);
+            str_result = "Result: " + str_result;
+            resultLabel.setText(str_result);
+        }catch(Exception e){
+            resultLabel.setText("Result: error");
+        }
+        
     }//GEN-LAST:event_mulButtonActionPerformed
 
     private void divButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divButtonActionPerformed
-        String a = aField.getText();
-        String b = bField.getText();
-        Double result = Calculation.div(a, b);
-        String str_result = String.valueOf(result);
-        str_result = "Result: " + str_result;
-        resultLabel.setText(str_result);
+        try {
+            String a = aField.getText();
+            String b = bField.getText();
+            Double result = Calculation.div(a, b);
+            String str_result = String.valueOf(result);
+            str_result = "Result: " + str_result;
+            resultLabel.setText(str_result);
+        }catch(Exception e){
+             resultLabel.setText("Result: error");
+        }
     }//GEN-LAST:event_divButtonActionPerformed
 
     /**
